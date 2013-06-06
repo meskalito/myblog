@@ -1,0 +1,78 @@
+<?php function html_header() { ?>
+<head>
+<meta charset="utf-8">
+<title>Блог Mr.Meskalito </title>
+<script type="text/javascript" src="js/iquery-1.5.1.js"></script>
+<link rel="stylesheet" type="text/css" href="http://site2/blog.css"/>
+<link rel="stylesheet" type="text/css" href="http://site2/blog_form_article.css"/>
+</head>
+<body id="article_fon">
+<div id="article">
+<div id="banner"><img src="http://site2/images/logo.png" width="1024" height="200" alt="CSS: The Missing Manual"></div>
+<div id="mainNav">
+<ul id="nav">
+  <li><a href="index.php">Главная</a></li>
+  <li><a href="html.php">HTML</a></li>
+  <li><a href="css.php">CSS</a></li>
+  <li><a href="php.php">PHP</a></li>
+  <li><a href="index.php">Готовые решения</a></li>
+  <li><a href="index.php">О себе</a></li>
+</ul>
+</div>
+<?php } ?>
+
+<?php function right_sidebar() { ?>
+<div id="wrap">
+  <div id="rightSidebar">
+  </div>
+<?php } ?>
+<?php function list_articles() { ?>
+  <div id="main">
+    <h1 id="lead"><span class="section">Список статей</span> </h1>
+    <?php
+    mysql_query("SET NAMES utf8");
+    //$num = 2;
+    $section = array('php','html','css','javascript','mysql','postgresql' );
+    //$qresult = mysql_query("SELECT * FROM blog WHERE section = '$section[$num]'");
+    $qresult = mysql_query("SELECT * FROM blog");
+    if (!$qresult) die ("Ошибка подключения к базе данных");
+    while ($list_article = mysql_fetch_assoc($qresult)) {
+      $id = $list_article["id"];
+      print "<h2>{$list_article["title"]}</h2></br>";
+      print "<p>{$list_article["preview"]}</p></br>";
+    }
+    ?>
+  
+  </div>
+</div>
+
+<?php } ?>
+
+<?php function list_articles_section($num, $id) { ?>
+  <div id="main">
+    <h1 id="lead"><span class="section">Список статей</span> </h1>
+    <?php
+    mysql_query("SET NAMES utf8");
+    //$num = 2;
+    $section = array('php','html','css','javascript','mysql','postgresql' );
+    $qresult = mysql_query("SELECT * FROM blog WHERE section = '$section[$num]'");
+    //$qresult = mysql_query("SELECT * FROM blog");
+    if (!$qresult) die ("Ошибка подключения к базе данных");
+    while ($list_article = mysql_fetch_assoc($qresult)) {
+      print "<h2>{$list_article["title"]}</h2></br>";
+      print "<p>{$list_article["preview"]}</p>";
+      print "<a href='full_article.php'>читать далее</a></br>";
+    }
+    ?>
+  
+  </div>
+</div>
+
+<?php } ?>
+<?php function copyright() { ?>
+<div id="copyright">
+<h3>&#174 2013 Mr.Meskalito mr.meskalito@gmail.com</h3>
+</div>
+</div>
+</body>
+<?php } ?>

@@ -1,0 +1,8 @@
+<?php
+require_once ('blog_fns.php');
+db_connect();
+db_select("blog");
+html_header();
+right_sidebar();
+list_articles_section($num = 0);
+copyright();

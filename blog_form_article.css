@@ -1,0 +1,50 @@
+
+#subForm {
+  font-size: .8em;
+}
+#subForm .label {
+  float: left;
+  width: 230px;
+  margin-right: 10px;
+  text-align: right;
+  font-weight: bold;
+  clear: left;
+}
+
+#subscribe {
+  margin-left: 240px;
+  background-color: #CBD893;
+  font-family: "Century Gothic", "Gill Sans", Arial, sans-serif;
+}
+
+#section {
+  font-family: "Century Gothic", "Gill Sans", Arial, sans-serif;
+}
+
+#title, #preview {
+  background-color: #FBEF99;
+  font-family:"Lucida Console", Monaco, monospace;
+  font-size: .9em;
+  width: 430px;
+  margin-top: -2px;
+}
+#preview {
+  height: 200px;
+}
+#newarticle {
+  background-color: #FBEF99;
+  font-family:"Lucida Console", Monaco, monospace;
+  font-size: .9em;
+  width: 100%;
+  margin-top: -2px;
+  height: 500px; /* Высота поля в пикселах */
+  resize: none; /* Запрещаем изменять размер */
+}
+
+/*#title:focus,
+#preview:focus,
+#newarticle:focus,
+#section:focus*/
+{
+  background-color: #FDD041;
+}
